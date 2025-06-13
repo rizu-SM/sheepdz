@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل - منصة توزيع الأضاحي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>منصة الأضاحي</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="register.html" class="active"><i class="fas fa-user-plus"></i> التسجيل</a></li>
+                    <li><a href="login.html" ><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <h2>تسجيل جديد</h2>
+                <p>يرجى ملء النموذج التالي للتسجيل في منصة توزيع الأضاحي</p>
+                
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="fullName">الاسم الكامل</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wilaya">الولاية</label>
+                        <select id="wilaya" name="wilaya" required>
+                            <option value="">اختر الولاية</option>
+                            <option value="الجزائر">الجزائر</option>
+                            <option value="وهران">وهران</option>
+                            <option value="قسنطينة">قسنطينة</option>
+                            <option value="عنابة">عنابة</option>
+                            <option value="سطيف">سطيف</option>
+                            <option value="تلمسان">تلمسان</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">المنطقة</label>
+                        <select id="region" name="region" required disabled>
+                            <option value="">اختر المنطقة</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="familyBookNumber">رقم دفتر العائلة</label>
+                        <input type="text" id="familyBookNumber" name="familyBookNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact">البريد الإلكتروني أو رقم الهاتف</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">تأكيد كلمة المرور</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn">تسجيل</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 منصة توزيع الأضاحي - الجزائر. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

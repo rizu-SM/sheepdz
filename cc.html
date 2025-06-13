@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الحجز - منصة توزيع الأضاحي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>منصة الأضاحي</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="register.html"><i class="fas fa-user-plus"></i> التسجيل</a></li>
+                    <li><a href="reservation.html"><i class="fas fa-calendar-alt"></i> الحجز</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="confirmation-section">
+            <div class="container">
+                <div class="confirmation-card">
+                    <div class="confirmation-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>تم تأكيد الحجز بنجاح!</h2>
+                    </div>
+                    
+                    <div class="confirmation-details">
+                        <h3>تفاصيل الحجز</h3>
+                        
+                        <div class="detail-item">
+                            <span class="label">رقم الحجز:</span>
+                            <span id="reservationId" class="value"></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">الولاية:</span>
+                            <span id="wilayaConfirm" class="value"></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">المنطقة:</span>
+                            <span id="regionConfirm" class="value"></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">تاريخ الاستلام:</span>
+                            <span id="dateConfirm" class="value"></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">وقت الاستلام:</span>
+                            <span id="timeConfirm" class="value"></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">طريقة الدفع:</span>
+                            <span id="paymentConfirm" class="value"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="confirmation-message">
+                        <p>شكراً لاختيارك منصة توزيع الأضاحي. نتمنى لك عيداً مباركاً!</p>
+                        <p>يرجى الاحتفاظ برقم الحجز وإحضاره معك عند استلام الأضحية.</p>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <a href="index.html" class="btn">العودة للرئيسية</a>
+                        <button id="printConfirmation" class="btn btn-outline"><i class="fas fa-print"></i> طباعة التأكيد</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 منصة توزيع الأضاحي - الجزائر. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
