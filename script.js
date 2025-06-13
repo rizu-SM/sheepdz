@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set minimum date for reservation to today
     const today = new Date().toISOString().split('T')[0];
     const dateInputs = document.querySelectorAll('input[type="date"]');
     dateInputs.forEach(input => {
         input.min = today;
     });
 
-    // Wilaya and Region data
     const regions = {
         'الجزائر': ['باب الوادي', 'بئر مراد رايس', 'بوزريعة', 'الحراش', 'الدار البيضاء'],
         'وهران': ['وهران المدينة', 'عين الترك', 'أرزيو', 'السانية', 'بئر الجير'],
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'تلمسان': ['تلمسان المدينة', 'مغنية', 'الرمشي', 'ندرومة', 'الغزوات']
     };
 
-    // Update regions based on selected wilaya
     const wilayaSelect = document.getElementById('wilaya');
     const regionSelect = document.getElementById('region');
     
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Show/hide CCP details based on payment method
     const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
     const ccpDetails = document.getElementById('ccpDetails');
     
@@ -56,13 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form validation and submission
     const registrationForm = document.getElementById('registrationForm');
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simple validation
             const fullName = document.getElementById('fullName').value;
             const wilaya = document.getElementById('wilaya').value;
             const region = document.getElementById('region').value;
@@ -74,30 +68,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Store data in localStorage for use in reservation
             localStorage.setItem('userFullName', fullName);
             localStorage.setItem('userWilaya', wilaya);
             localStorage.setItem('userRegion', region);
             localStorage.setItem('userFamilyBook', familyBookNumber);
             localStorage.setItem('userContact', contact);
             
-            // Redirect to reservation page
             window.location.href = 'reservation.html';
         });
     }
 
-    // Reservation form handling
     const reservationForm = document.getElementById('reservationForm');
     const confirmationModal = document.getElementById('confirmationModal');
     
     if (reservationForm) {
-        // Pre-fill wilaya if user came from registration
         const userWilaya = localStorage.getItem('userWilaya');
         const userRegion = localStorage.getItem('userRegion');
         
         if (userWilaya && wilayaSelect) {
             wilayaSelect.value = userWilaya;
-            // Trigger change event to populate regions
             const event = new Event('change');
             wilayaSelect.dispatchEvent(event);
             
@@ -111,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
         reservationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simple validation
             const reservationDate = document.getElementById('reservationDate').value;
             const timeSlot = document.getElementById('timeSlot').value;
             const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
@@ -121,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // If CCP payment is selected, validate CCP number
             if (paymentMethod.value === 'ccp') {
                 const ccpNumber = document.getElementById('ccpNumber').value;
                 if (!ccpNumber) {
@@ -131,16 +118,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('userCcpNumber', ccpNumber);
             }
             
-            // Generate reservation ID
             const reservationId = 'SH' + Math.floor(100000 + Math.random() * 900000);
             
-            // Store reservation data
             localStorage.setItem('reservationId', reservationId);
             localStorage.setItem('reservationDate', reservationDate);
             localStorage.setItem('reservationTime', timeSlot);
             localStorage.setItem('paymentMethod', paymentMethod.value);
             
-            // Show confirmation modal
             if (confirmationModal) {
                 const reservationDetails = document.getElementById('reservationDetails');
                 if (reservationDetails) {
@@ -155,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Modal close button
     const closeBtn = document.querySelector('.close');
     if (closeBtn && confirmationModal) {
         closeBtn.addEventListener('click', function() {
@@ -163,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // View confirmation button
     const viewConfirmationBtn = document.getElementById('viewConfirmation');
     if (viewConfirmationBtn) {
         viewConfirmationBtn.addEventListener('click', function() {
@@ -171,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Populate confirmation page
     const reservationId = document.getElementById('reservationId');
     const wilayaConfirm = document.getElementById('wilayaConfirm');
     const regionConfirm = document.getElementById('regionConfirm');

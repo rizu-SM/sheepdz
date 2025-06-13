@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الحكومة - منصة توزيع الأضاحي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>منصة الأضاحي</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="gov-dashboard.html" class="active"><i class="fas fa-chart-bar"></i> لوحة الحكومة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <h2>لوحة تحكم الحكومة</h2>
+                <div class="stats" style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px;">
+                    <div style="flex:1; min-width:220px; background:#f9f9f9; border-radius:8px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                        <label style="font-weight:600;">إجمالي عدد الأضاحي المدخلة للجزائر:</label>
+                        <div style="font-size:2em; color:var(--primary-color);" id="total-sheep">0</div>
+                    </div>
+                    <div style="flex:1; min-width:220px; background:#f9f9f9; border-radius:8px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                        <label for="wilaya-select" style="font-weight:600;">اختر الولاية:</label>
+                        <select id="wilaya-select" style="margin-top:10px;">
+                            <option value="">-- اختر --</option>
+                            <option value="1">أدرار</option>
+                            <option value="2">الشلف</option>
+                            <option value="3">الأغواط</option>
+                            <option value="4">أم البواقي</option>
+                            <option value="5">باتنة</option>
+                        </select>
+                        <div style="margin-top:15px;">
+                            <label style="font-weight:600;">عدد الأضاحي في الولاية:</label>
+                            <span id="wilaya-sheep" style="font-size:1.5em; color:var(--secondary-color);">0</span>
+                        </div>
+                    </div>
+                </div>
+                <h3 style="margin-bottom:15px; color:var(--primary-color);">قائمة الطلبات في الولاية</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; background:#fff; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                        <thead>
+                            <tr style="background:var(--accent-color); color:#fff;">
+                                <th style="padding:10px;">الاسم</th>
+                                <th style="padding:10px;">رقم دفتر العائلة</th>
+                                <th style="padding:10px;">عدد الأضاحي المطلوبة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 منصة توزيع الأضاحي - الجزائر. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script src="gov-dashboard.js"></script>
+</body>
+</html>
