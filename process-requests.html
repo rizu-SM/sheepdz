@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معالجة الطلبات - منصة توزيع الأضاحي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>منصة الأضاحي</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="gov-dashboard.html"><i class="fas fa-chart-bar"></i> لوحة الحكومة</a></li>
+                    <li><a href="process-requests.html" class="active"><i class="fas fa-tasks"></i> معالجة الطلبات</a></li>
+                    <li><a href="distribution-places.html" ><i class="fas fa-map-marker-alt"></i> أماكن التوزيع</a></li>
+                    <li><a href="sheep-entry.html" ><i class="fas fa-bullhorn"></i> الإعلانات/الأضاحي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <h2>معالجة الطلبات</h2>
+                <div style="margin-bottom:20px;">
+                    <label for="wilaya-select" style="font-weight:600;">اختر الولاية:</label>
+                    <select id="wilaya-select" style="margin-top:10px;">
+                        <option value="">-- اختر --</option>
+                        <option value="1">أدرار</option>
+                        <option value="2">الشلف</option>
+                        <option value="3">الأغواط</option>
+                        <option value="4">أم البواقي</option>
+                        <option value="5">باتنة</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="search-name" style="font-weight: 600;">ابحث بالاسم:</label>
+                    <input type="text" id="search-name" placeholder="أدخل الاسم" style="margin-top: 10px; padding: 5px; width: 200px;">
+                </div>
+
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; background:#fff; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                        <thead>
+                            <tr style="background:var(--accent-color); color:#fff;">
+                                <th style="padding:10px;">الاسم</th>
+                                <th style="padding:10px;">رقم دفتر العائلة</th>
+                                <th style="padding:10px;">البريد الإلكتروني / رقم الهاتف</th>
+                                <th style="padding:10px;">الإجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requests-table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="details-modal" class="modal" style="display:none;">
+        <div class="modal-content" style="max-width:400px;">
+            <span class="close" id="close-modal" style="float:left;cursor:pointer;">&times;</span>
+            <h3 style="margin-bottom:15px;">تفاصيل الطلب</h3>
+            <div id="details-content">
+            </div>
+            <div style="margin-top:20px; text-align:center;">
+                <button class="btn" id="accept-btn">قبول</button>
+                <button class="btn btn-outline" id="reject-btn">رفض</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="process-requests.js"></script>
+</body>
+</html>

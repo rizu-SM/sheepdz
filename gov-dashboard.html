@@ -17,6 +17,10 @@
                 <ul>
                     <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
                     <li><a href="gov-dashboard.html" class="active"><i class="fas fa-chart-bar"></i> لوحة الحكومة</a></li>
+                    <li><a href="process-requests.html"><i class="fas fa-tasks"></i> معالجة الطلبات</a></li>
+                    <li><a href="distribution-places.html" ><i class="fas fa-map-marker-alt"></i> أماكن التوزيع</a></li>
+                    <li><a href="sheep-entry.html" ><i class="fas fa-bullhorn"></i> الإعلانات/الأضاحي</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -25,7 +29,6 @@
     <main>
         <section class="form-section">
             <div class="container">
-                <h2>لوحة تحكم الحكومة</h2>
                 <div class="stats" style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px;">
                     <div style="flex:1; min-width:220px; background:#f9f9f9; border-radius:8px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
                         <label style="font-weight:600;">إجمالي عدد الأضاحي المدخلة للجزائر:</label>
@@ -54,7 +57,7 @@
                             <tr style="background:var(--accent-color); color:#fff;">
                                 <th style="padding:10px;">الاسم</th>
                                 <th style="padding:10px;">رقم دفتر العائلة</th>
-                                <th style="padding:10px;">عدد الأضاحي المطلوبة</th>
+                                <th style="padding:10px;">البريد الإلكتروني / رقم الهاتف</th>
                             </tr>
                         </thead>
                         <tbody id="orders-table">
@@ -65,11 +68,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 منصة توزيع الأضاحي - الجزائر. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+
     <script src="gov-dashboard.js"></script>
 </body>
 </html>
