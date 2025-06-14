@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مساعد الأضاحي</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    .chat-box {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .messages {
+      height: 350px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      background-color: var(--light-color);
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      line-height: 1.6;
+      max-width: 80%;
+    }
+
+    .bot {
+      background-color: #e8f5e9;
+      color: var(--text-color);
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .user {
+      background-color: #c8e6c9;
+      color: var(--text-color);
+      text-align: left;
+      margin-right: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .chat-input .btn {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>منصة الأضاحي</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+          <li><a href="register.html"><i class="fas fa-user-plus"></i> التسجيل</a></li>
+          <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="chat-box">
+        <h2 style="text-align:center; color:var(--primary-color); margin-bottom: 20px;">مساعد منصة الأضاحي</h2>
+        <div class="messages" id="chatBox">
+          <div class="message bot">مرحباً! هل أنت غير متزوج وتريد حجز أضحية؟</div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="userInput" placeholder="اكتب رسالتك هنا...">
+          <button class="btn" onclick="sendMessage()">إرسال</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+    let step = 0;
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chatBox = document.getElementById("chatBox");
+  const userText = input.value.trim();
+  if (!userText) return;
+
+  chatBox.innerHTML += `<div class="message user">${userText}</div>`;
+
+  let reply = "عذرًا، لم أفهم. هل يمكنك التوضيح؟";
+
+  if (step === 0) {
+    reply = "هل أنت مقيم في الجزائر العاصمة؟";
+    step = 1;
+  } else if (step === 1) {
+    if (userText.includes("نعم")) {
+      reply = "جميل! هل لديك بطاقة تعريف وطنية؟";
+      step = 2;
+    } else {
+      reply = "عذرًا، الخدمة متاحة حاليًا فقط في العاصمة.";
+      step = -1;
+    }
+  } else if (step === 2) {
+    if (userText.includes("نعم")) {
+      reply = "ممتاز، يمكنك التسجيل باستخدام رقم بطاقة التعريف هنا: <a href='register.html'>صفحة التسجيل</a>";
+      step = -1;
+    } else {
+      reply = "للأسف، لا يمكن المتابعة بدون وثيقة إثبات الهوية.";
+      step = -1;
+    }
+  }
+
+  setTimeout(() => {
+    chatBox.innerHTML += `<div class="message bot">${reply}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 600);
+
+  input.value = "";
+}
+
+  </script>
+
+</body>
+</html>
